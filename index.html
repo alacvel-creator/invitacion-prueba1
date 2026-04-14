@@ -3,149 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Misión Pandora: Mi Cumpleaños!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    
+    <title>Invitación Cumpleaños #9: Camila Cortez</title>
+    <meta property="og:title" content="¡Te invito a mi Cumpleaños #9! - Camila Cortez">
+    <meta property="og:description" content="Acompáñame el Jueves 16 de Abril en el Megacenter. ¡Reserva tu lugar en Pandora!">
+    <meta property="og:image" content="URL_A_TU_IMAGEN.jpg"> <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --pandora-blue: #00d4ff;
             --deep-ocean: #0a192f;
-            --forest-green: #1a472a;
-            --glow: 0 0 15px var(--pandora-blue);
+            --accent: #8feaff;
+            --text-glow: 0 0 10px var(--accent);
         }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--deep-ocean);
-            background-image: radial-gradient(circle at center, #112240 0%, #0a192f 100%);
-            color: white;
-            font-family: 'Montserrat', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
             overflow-x: hidden;
+            background-color: var(--deep-ocean);
+            /* Usaremos una degradación suave para que el fondo de la imagen se funda bien */
+            background-image: radial-gradient(circle at center, rgba(16, 34, 64, 0.9) 0%, rgba(10, 25, 47, 1) 100%);
         }
 
-        /* Estrellas de fondo simulando partículas */
-        .stars {
-            position: fixed;
-            width: 2px;
-            height: 2px;
-            background: white;
-            box-shadow: 10vw 20vh 2px white, 50vw 40vh 2px white, 80vw 10vh 2px white;
-            animation: blink 3s infinite;
-        }
-
-        .container {
-            max-width: 500px;
-            width: 90%;
-            background: rgba(10, 25, 47, 0.8);
-            border: 2px solid var(--pandora-blue);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: var(--glow);
-            backdrop-filter: blur(10px);
+        /* Contenedor principal con la imagen de fondo */
+        .invitation-container {
+            width: 100%;
+            max-width: 480px; /* Tamaño máximo para móvil, adaptado de la imagen */
+            min-height: 100vh;
+            background-image: url('URL_A_TU_IMAGEN.jpg'); /* Reemplaza con tu URL */
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
             position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border: 2px solid var(--pandora-blue);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        /* Superposición suave para asegurar legibilidad */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.4); /* Capa muy sutil */
             z-index: 1;
         }
 
-        h1 {
+        /* Contenido de texto superpuesto */
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            text-align: center;
+            /* Empujamos el texto hacia la parte superior e inferior para no tapar la cara */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        /* Título superior (Tomado de la imagen original) */
+        .text-top {
+            margin-top: 10px;
+        }
+        
+        .verse {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Título de la invitación (Nombre y Edad) */
+        .title-section h1 {
             font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--pandora-blue);
-            text-shadow: var(--glow);
-            margin-bottom: 10px;
+            text-shadow: var(--text-glow);
+            margin: 0;
+        }
+        
+        .name-highlight {
+            font-family: 'Cinzel', serif;
+            color: var(--accent);
+            text-shadow: 0 0 15px var(--accent);
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            opacity: 0.8;
+        /* Bloque de datos central */
+        .details-section {
+            background: rgba(10, 25, 47, 0.8);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: var(--text-glow);
+            backdrop-filter: blur(5px);
         }
 
-        .info-section {
-            margin: 20px 0;
-            padding: 15px;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        .data-point {
+            margin: 15px 0;
+            font-size: 1.1rem;
         }
 
-        .info-section:last-child {
-            border-bottom: none;
+        .data-point strong {
+            color: var(--accent);
+            font-weight: 700;
         }
 
-        .date {
-            font-size: 1.5rem;
+        .date-time {
+            font-size: 1.4rem;
             font-weight: bold;
+            display: block;
+            margin-top: 5px;
         }
 
+        .location {
+            color: var(--pandora-blue);
+        }
+
+        /* Botón de Confirmación */
         .btn-confirm {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
+            display: block;
+            margin-top: 20px;
+            padding: 18px 30px;
             background: transparent;
             color: var(--pandora-blue);
             border: 2px solid var(--pandora-blue);
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            transition: 0.3s;
-            box-shadow: var(--glow);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            cursor: pointer;
         }
 
         .btn-confirm:hover {
             background: var(--pandora-blue);
             color: var(--deep-ocean);
-            box-shadow: 0 0 30px var(--pandora-blue);
+            box-shadow: 0 0 35px var(--pandora-blue);
         }
 
-        @keyframes blink {
-            50% { opacity: 0.5; }
+        /* Pie de página */
+        .footer {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 20px;
+            letter-spacing: 1px;
         }
 
-        /* Adorno de hojas espirituales */
-        .decoration {
-            font-size: 2rem;
-            margin: 10px 0;
+        /* Iconos de Avatar */
+        .icon-pandora {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
+
     </style>
 </head>
 <body>
 
-    <div class="stars"></div>
-
-    <div class="container">
-        <div class="decoration">🪷</div>
-        <h1>Irayo</h1>
-        <p class="subtitle">¡Estás invitado a Pandora!</p>
+    <div class="invitation-container">
+        <div class="overlay"></div>
         
-        <div class="info-section">
-            <p>Acompáñame a celebrar mi cumpleaños número</p>
-            <div class="date" style="font-size: 3rem;">8</div>
+        <div class="content">
+            <div class="text-top">
+                <span class="icon-pandora">🪷</span>
+                <p class="verse">Para ti que eres<br>Fuerte, Inteligente y Hermosa</p>
+            </div>
+
+            <div class="details-section">
+                <div class="title-section">
+                    <h1>Te invito a mi cumpleaños #9</h1>
+                    <p class="name-highlight">Camila Cortez</p>
+                </div>
+
+                <div class="data-point">
+                    <p><strong>¿CUÁNDO?</strong></p>
+                    <span class="date-time">Jueves, 16 de Abril</span>
+                    <span>A las 17:00 Horas</span>
+                </div>
+
+                <div class="data-point">
+                    <p><strong>¿DÓNDE?</strong></p>
+                    <p class="location">MEGA CENTER</p>
+                    <p>Zona de Irpavi, La Paz</p>
+                </div>
+
+                <div class="data-point">
+                    <p><strong>PROGRAMA:</strong></p>
+                    <p>Función de Cine 🎬 → Merienda 🍕 → Feliz Cumpleaños 🎂</p>
+                    <p><em>(Hasta las 20:00 Hrs)</em></p>
+                </div>
+
+                <a href="https://wa.me/59167102521?text=¡Oel%20ngati%20kameie!%20Confirmo%20asistencia%20al%20cumpleaños%20%239%20de%20Camila%20Cortez%20el%2016%20de%20abril" class="btn-confirm">
+                    CONFIRMAR ASISTENCIA (WhatsApp)
+                    <span style="font-size: 0.8rem; display: block;">+591 67102521</span>
+                </a>
+            </div>
+
+            <div class="footer">
+                "Recuerdo de mi cumpleaños #9"
+            </div>
         </div>
-
-        <div class="info-section">
-            <p><strong>¿CUÁNDO?</strong></p>
-            <p class="date">Sábado, 25 de Abril</p>
-            <p>A las 16:00 Horas</p>
-        </div>
-
-        <div class="info-section">
-            <p><strong>¿DÓNDE?</strong></p>
-            <p>Bosque de los Espíritus (Tu Dirección Aquí)</p>
-            <p><em>Montero, Santa Cruz</em></p>
-        </div>
-
-        <a href="https://wa.me/591XXXXXXXX?text=¡Oel%20ngati%20kameie!%20Confirmo%20mi%20asistencia" class="btn-confirm">
-            CONFIRMAR ASISTENCIA (WhatsApp)
-        </a>
-
-        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.6;">
-            "Oel ngati kameie" - Te veo
-        </p>
     </div>
 
 </body>
